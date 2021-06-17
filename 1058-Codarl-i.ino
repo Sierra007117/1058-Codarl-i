@@ -54,6 +54,7 @@ void setup() {
   server.begin();
   lcd.setCursor(0, 0);
   lcd.print(WiFi.localIP());
+  lcd.clear();
   lcd.setCursor(0, 1);
   lcd.print("1OFF2OFF3OFF4OFF");
 }
@@ -62,7 +63,7 @@ void loop() {
   digitalWrite(D4, HIGH);
   timeClient.update();
   lcd.setCursor(0, 0);
-  lcd.print(timeClient.getFormattedTime());
+  lcd.print(WiFi.RSSI() );
   lcd.setCursor(8, 0);
   lcd.print(timeClient.getFormattedTime());
   WiFiClient client = server.available();
